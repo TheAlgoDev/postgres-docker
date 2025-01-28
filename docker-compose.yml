@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: my_postgres_db
+    environment:
+      POSTGRES_USER: brent
+      POSTGRES_PASSWORD: solar
+      POSTGRES_DB: fsec_database
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+    command: postgres -c listen_addresses='*'
+    ports:
+      - "5432:5432"
+    restart: always
